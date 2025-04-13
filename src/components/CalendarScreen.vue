@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 import BottomImage from '../assets/screen-two/bottom.png';
@@ -80,7 +80,7 @@ function getJune2025Days() {
   return days;
 }
 
-function getDayClasses(day) {
+function getDayClasses(day: any) {
   if (day === 0) {
     return 'text-gray-300 hover:bg-gray-100';
   } else if (day === 7) {
@@ -90,24 +90,24 @@ function getDayClasses(day) {
   }
 }
 
-function calculateParallax(index) {
+function calculateParallax(index: number) {
   // Создаем эффект появления чисел по диагонали (базовые -700 с дополнительным смещением)
   const rowOffset = Math.floor(index / 7) * 50;
   const colOffset = (index % 7) * 50;
   return `-${500 + rowOffset + colOffset}`;
 }
 
-function calculateDuration(index) {
+function calculateDuration(index: number) {
   // В два раза быстрее
   return 400 + (index * 15);
 }
 
-function calculateWeekdayParallax(index) {
+function calculateWeekdayParallax(index: number) {
   // Смещение для дней недели
   return `-${500 + (index * 100)}`;
 }
 
-function calculateWeekdayDuration(index) {
+function calculateWeekdayDuration(index: number) {
   // В два раза быстрее
   return 300 + (index * 15);
 }
